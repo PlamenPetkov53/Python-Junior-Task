@@ -9,4 +9,3 @@ UserCar [user, car_brand, car_model, first_reg, odometer, created_at, deleted_at
 
 Auth:
 Please extend the default Django user class and add some custom fields. Create login, and register functionality. User default Django permission classes. 
-
