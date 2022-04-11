@@ -1,0 +1,24 @@
+{% block content %}
+<form action="" method="POST">
+      {% csrf_token %}
+      
+
+
+      {% for each_field in form %}
+      <div>
+          <p>{{ each_field.label }}: <br> {{ each_field }}</p> 
+
+          {% for error in each_field.errors %}
+              <small style="color: red">{{ error }}</small>
+          {% endfor %}
+      </div>
+  {% endfor %}
+
+      <button type="submit">Register</button>
+
+
+</form>
+
+
+
+{% endblock %}

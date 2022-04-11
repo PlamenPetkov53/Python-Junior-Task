@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width={device-width}, initial-scale=1.0">
+      <title>Create User Car</title>
+</head>
+<body>
+{% block content %}
+<a href="{%url 'assets:home'%}">
+    <button>Back To Start Page</button>
+  </a>
+
+
+
+<form action="" method="POST">
+      
+      {% csrf_token %}
+
+
+      {% for each_field in form %}
+      <div>
+          <p>{{ each_field.label }}: <br> {{ each_field }}</p> 
+
+          {% for error in each_field.errors %}
+              <small style="color: red">{{ error }}</small>
+          {% endfor %}
+      </div>
+  {% endfor %}
+
+      <button type="submit">Create</button>
+
+
+</form>
+
+
+
+{% endblock %}
+</body>
+</html>

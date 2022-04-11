@@ -1,0 +1,57 @@
+{% block content %}
+
+
+<table id="table_id" class="display">
+
+  <thead>
+
+    <tr>
+
+      <th>ID</th>
+
+      <th>Brand Name</th>
+
+      <th>Created At</th>
+
+      <th>Deleted At</th>
+
+      <th>Is Deleted</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    {% for each_car_brand in data %}
+
+    <tr>
+
+      <td>{{each_car_brand.id}}</td>
+
+      <td>{{each_car_brand.brand_name}}</td>
+
+      <td>{{each_car_brand.created_at}}</td>
+
+      <td>{{each_car_brand.deleted_at}}</td>
+
+      <td>{{each_car_brand.is_deleted}}</td>
+
+      <td><a class="btn btn-sm btn-danger" href="{% url 'assets:delete_brand' id=each_car_brand.id %}">Delete</a></td>
+
+
+      
+
+
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+  <a href="{%url 'assets:home'%}">
+    <button>Back To Start Page</button>
+  </a>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+<body>
+      
+      <a href="{%url 'assets:home'%}">
+      <button>Back To Start Page</button>
+      </a>
+
+
+
+
+
+      <form action="{%url 'assets:search'%}" method="GET">
+            {{  user_filter.form.as_p }}
+            <button type="submit">Search Users</button>
+      </form>
+      <ul>
+          {% for user in user_filter.qs %}
+            <li>Username : {{ user.username }}</li>
+          {% endfor %}
+      </ul> 
+
+
+
+      <form action="{%url 'assets:searchcar'%}" method="GET">
+          
+          <button type="submit">Search User Car</button>
+          {{ car_user_filter.form.as_p }}
+      </form>
+      
+      
+      <ul>
+            {% for user_car in car_user_filter.qs %}
+            
+            
+            
+              <li>Username: {{ user_car.user }} -  Car: {{ user_car.car_brand }}</li>
+            {% endfor %}
+      </ul> 
+      
+
+      <form action="{%url 'assets:search_brand'%}" method="GET">
+          
+            <button type="submit">Search Brand</button>
+            {{ car_brand_filter.form.as_p }}
+      </form>
+        
+        
+        <ul>
+              {% for car_brand in car_brand_filter.qs %}
+              
+              
+              
+                <li>Brand: {{ car_brand.brand_name }}</li>
+              {% endfor %}
+        </ul> 
+
+
+        <form action="{%url 'assets:search_model'%}" method="GET">
+          
+            <button type="submit">Search Model</button>
+            {{ car_model_filter.form.as_p }}
+      </form>
+        
+        
+        <ul>
+              {% for car_model in car_model_filter.qs %}
+              
+              
+              <li>Brand: {{ car_model.car_brand.brand_name }} - Model: {{ car_model.model_name }}</li>
+                
+              {% endfor %}
+        </ul> 
+      
+      
+</body>
+</html>

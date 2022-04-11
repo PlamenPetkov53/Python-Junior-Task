@@ -1,0 +1,61 @@
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import CustomUser
+
+# Register your models here.
+
+class CustomUserAdmin(UserAdmin):
+
+
+
+      list_display = (
+            'username', 'email', 'first_name', 'last_name', 'is_staff',
+            'is_visitor', 'is_creator', 'city_birth'
+            )
+
+      fieldsets = (
+            (None, {
+                  'fields': ('username', 'password')
+            }),
+            ('Personal info', {
+                  'fields': ('first_name', 'last_name', 'email')
+            }),
+            ('Permissions', {
+                  'fields': (
+                  'is_active', 'is_staff', 'is_superuser',
+                  'is_visitor', 'is_creator', 
+                  'groups', 'user_permissions'
+                  )
+            }),
+            ('Important dates', {
+                  'fields': ('last_login', 'date_joined')
+            }),
+            ('Additional info', {
+                  'fields': ('city_birth',)
+            })
+      )
+
+
+
+      add_fieldsets = (
+        (None, {
+            'fields': ('username', 'password1', 'password2')
+        }),
+        ('Personal info', {
+            'fields': ('first_name', 'last_name', 'email',)
+        }),
+        ('Permissions', {
+            'fields': (
+                'is_active', 'is_staff', 'is_superuser',
+                'is_visitor', 'is_creator', 
+                'groups', 'user_permissions'
+                )
+        }),
+        ('Important dates', {
+            'fields': ('last_login', 'date_joined')
+        }),
+        ('Additional info', {
+            'fields': ('city_birth',)
+        })
+     )
+admin.site.register(CustomUser, CustomUserAdmin)

@@ -1,0 +1,47 @@
+{% extends 'base_home.html' %}
+{% block content %}
+
+<a href="{%url 'assets:createbrand'%}">
+      <button>Create Brand</button>
+</a>
+
+
+<a href="{%url 'assets:createmodel'%}">
+      <button>Create Model</button>
+</a>
+  
+
+<a href="{%url 'assets:createusercar'%}">
+      <button>Create User Car</button>
+</a>
+  
+<a href="{%url 'assets:search'%}">
+      <button>Search</button>
+</a>
+
+<a href="{%url 'assets:user_cars'%}">
+      <button>User Cars Table</button>
+</a>
+
+<a href="{%url 'assets:car_brands'%}">
+      <button>Cars Brands Table</button>
+</a>
+
+
+<a href="{%url 'assets:car_models'%}">
+      <button>Cars Models Table</button>
+</a>
+
+
+
+<a href="{%url 'manager_rest_framework:home'%}">
+      <button>Check REST API with DRF</button>
+</a>
+  
+
+
+<a href="{%url 'appcore:logout'%}">
+      <button>Logout</button>
+</a>
+
+{% endblock %}
